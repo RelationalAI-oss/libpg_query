@@ -2,6 +2,10 @@ root_dir := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 TARGET = pg_query
 ARLIB = lib$(TARGET).a
+DYLIB = lib$(TARGET).so
+ifeq ($(shell uname -s), Darwin)
+	DYLIB = lib$(TARGET).dylib
+endif
 PGDIR = $(root_dir)/tmp/postgres
 PGDIRBZ2 = $(root_dir)/tmp/postgres.tar.bz2
 
@@ -14,6 +18,7 @@ OBJ_FILES := $(filter-out $(NOT_OBJ_FILES), $(OBJ_FILES))
 
 CFLAGS  = -I. -I./src/postgres/include -Wall -Wno-unused-function -Wno-unused-value -Wno-unused-variable -fno-strict-aliasing -fwrapv -fPIC
 LIBPATH = -L.
+LDFLAGS = -shared
 
 PG_CONFIGURE_FLAGS = -q --without-readline --without-zlib
 PG_CFLAGS = -fPIC
@@ -26,7 +31,7 @@ else
 	PG_CFLAGS += -O3
 endif
 
-CLEANLIBS = $(ARLIB)
+CLEANLIBS = $(ARLIB) $(DYLIB)
 CLEANOBJS = $(OBJ_FILES)
 CLEANFILES = $(PGDIRBZ2)
 
@@ -38,7 +43,7 @@ CC ?= cc
 
 all: examples test build
 
-build: $(ARLIB)
+build: $(ARLIB) $(DYLIB)
 
 clean:
 	-@ $(RM) $(CLEANLIBS) $(CLEANOBJS) $(CLEANFILES) $(EXAMPLES) $(TESTS)
@@ -82,6 +87,9 @@ extract_source: $(PGDIR)
 
 $(ARLIB): $(OBJ_FILES) Makefile
 	@$(AR) $@ $(OBJ_FILES)
+
+$(DYLIB): $(OBJ_FILES)
+	$(CC) $(CFLAGS) $(OBJ_FILES) -o $@ $(LDFLAGS)
 
 EXAMPLES = examples/simple examples/normalize examples/simple_error examples/normalize_error examples/simple_plpgsql
 examples: $(EXAMPLES)
