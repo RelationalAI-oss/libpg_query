@@ -9,7 +9,7 @@ endif
 PGDIR = $(root_dir)/tmp/postgres
 PGDIRBZ2 = $(root_dir)/tmp/postgres.tar.bz2
 
-PG_VERSION = 10.5
+PG_VERSION = 10.14
 
 SRC_FILES := $(wildcard src/*.c src/postgres/*.c)
 OBJ_FILES := $(SRC_FILES:.c=.o)
@@ -67,6 +67,7 @@ extract_source: $(PGDIR)
 	mkdir ./src/postgres/include
 	ruby ./scripts/extract_source.rb $(PGDIR)/ ./src/postgres/
 	cp $(PGDIR)/src/include/storage/dsm_impl.h ./src/postgres/include/storage
+	cp $(PGDIR)/src/include/port/atomics/arch-arm.h ./src/postgres/include/port/atomics
 	touch ./src/postgres/guc-file.c
 	# This causes compatibility problems on some Linux distros, with "xlocale.h" not being available
 	echo "#undef HAVE_LOCALE_T" >> ./src/postgres/include/pg_config.h
