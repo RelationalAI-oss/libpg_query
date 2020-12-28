@@ -14,6 +14,8 @@
 #ifndef HTUP_H
 #define HTUP_H
 
+#include "postgres_ext.h"
+
 #include "storage/itemptr.h"
 
 /* typedefs and forward declarations for structs defined in htup_details.h */

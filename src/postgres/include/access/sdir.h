@@ -14,6 +14,7 @@
 #ifndef SDIR_H
 #define SDIR_H
 
+#include "c.h"
 
 /*
  * ScanDirection was an int8 for no apparent reason. I kept the original

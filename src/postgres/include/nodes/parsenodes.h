@@ -22,6 +22,8 @@
 #ifndef PARSENODES_H
 #define PARSENODES_H
 
+#include "c.h"
+
 #include "nodes/bitmapset.h"
 #include "nodes/lockoptions.h"
 #include "nodes/primnodes.h"

@@ -14,6 +14,8 @@
 #ifndef PLANNODES_H
 #define PLANNODES_H
 
+#include "c.h"
+
 #include "access/sdir.h"
 #include "lib/stringinfo.h"
 #include "nodes/bitmapset.h"

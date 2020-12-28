@@ -14,6 +14,8 @@
 #ifndef EXTENSIBLE_H
 #define EXTENSIBLE_H
 
+#include "c.h"
+
 #include "access/parallel.h"
 #include "commands/explain.h"
 #include "nodes/execnodes.h"

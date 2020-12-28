@@ -14,6 +14,8 @@
 #ifndef MEMNODES_H
 #define MEMNODES_H
 
+#include "c.h"
+
 #include "nodes/nodes.h"
 
 /*

@@ -13,6 +13,8 @@
 #ifndef NODEFUNCS_H
 #define NODEFUNCS_H
 
+#include "c.h"
+
 #include "nodes/parsenodes.h"
 
 

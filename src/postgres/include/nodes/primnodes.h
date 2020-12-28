@@ -17,6 +17,8 @@
 #ifndef PRIMNODES_H
 #define PRIMNODES_H
 
+#include "c.h"
+
 #include "access/attnum.h"
 #include "nodes/bitmapset.h"
 #include "nodes/pg_list.h"

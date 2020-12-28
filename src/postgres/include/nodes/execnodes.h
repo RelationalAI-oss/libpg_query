@@ -14,6 +14,8 @@
 #ifndef EXECNODES_H
 #define EXECNODES_H
 
+#include "c.h"
+
 #include "access/genam.h"
 #include "access/heapam.h"
 #include "access/tupconvert.h"

@@ -14,6 +14,10 @@
 #ifndef PARAMS_H
 #define PARAMS_H
 
+#include "c.h"
+#include "postgres.h"
+#include "postgres_ext.h"
+
 /* Forward declarations, to avoid including other headers */
 struct Bitmapset;
 struct ParseState;

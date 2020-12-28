@@ -14,6 +14,8 @@
 #ifndef MAKEFUNC_H
 #define MAKEFUNC_H
 
+#include "c.h"
+
 #include "nodes/parsenodes.h"
 
 

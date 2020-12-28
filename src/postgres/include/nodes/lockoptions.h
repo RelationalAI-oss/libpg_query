@@ -13,6 +13,8 @@
 #ifndef LOCKOPTIONS_H
 #define LOCKOPTIONS_H
 
+#include "c.h"
+
 /*
  * This enum represents the different strengths of FOR UPDATE/SHARE clauses.
  * The ordering here is important, because the highest numerical value takes

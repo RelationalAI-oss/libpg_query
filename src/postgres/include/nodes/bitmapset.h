@@ -20,6 +20,8 @@
 #ifndef BITMAPSET_H
 #define BITMAPSET_H
 
+#include "c.h"
+
 /*
  * Forward decl to save including pg_list.h
  */
